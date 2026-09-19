@@ -1,6 +1,6 @@
-# 🎮 Wii Portfolio
+# 🎮 Wii Date
 
-Welcome to my **Wii Portfolio**. Its inspired by the beloved **Nintendo Wii Main Menu**. This website showcases my skills, projects, and personality in a playful, yet professional way.
+Welcome to my **Wii Date**. Its inspired by the beloved **Nintendo Wii Main Menu**. This website showcases my skills, projects, and personality in a playful, yet professional way.
 
 You can experience it live at https://tobieche.vercel.app/
 
@@ -73,3 +73,4 @@ If you have any questions or just want to say hi, feel free to reach out to me:
 ## ⚠️ Disclaimer
 
 This project is **not affiliated with, endorsed, or sponsored by Nintendo**. The design is inspired by the Nintendo Wii Main Menu for personal, non-commercial purposes only. All Nintendo-related trademarks and copyrights are the property of their respective owners.
+# WiiDate
