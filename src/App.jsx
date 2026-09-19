@@ -4,18 +4,24 @@ import "./App.css";
 import MainMenu from "./components/MainMenu";
 import WarningMenu from "./components/WarningMenu";
 import AboutMe from "./components/AboutMe";
-import TechnologiesView from "./components/TechnologiesView";
-import WorkExperienceView from "./components/WorkExperienceView";
+import MiiEditorView from "./components/MiiEditorView";
+import MatchaView from "./components/MatchaView";
+import ScheduleView from "./components/ScheduleView";
+import MusicPlayer from "./components/MusicPlayer";
 
 function App() {
     return (
-        <Routes>
-            <Route path="/main-menu" element={<MainMenu />} />
-            <Route path="/" element={<WarningMenu />} />
-            <Route path="/about-me" element={<AboutMe />} />
-            <Route path="/technologies-view" element={<TechnologiesView />} />
-            <Route path="/work-experience" element={<WorkExperienceView />} />
-        </Routes>
+        <>
+            <MusicPlayer />
+            <Routes>
+                <Route path="/main-menu" element={<MainMenu />} />
+                <Route path="/" element={<WarningMenu />} />
+                <Route path="/about-me" element={<AboutMe />} />
+                <Route path="/matcha" element={<MatchaView />} />
+                <Route path="/schedule" element={<ScheduleView />} />
+                <Route path="/mii-editor" element={<MiiEditorView />} />
+            </Routes>
+        </>
     );
 }
 

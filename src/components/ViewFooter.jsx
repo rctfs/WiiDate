@@ -1,13 +1,14 @@
 import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
 import { useMediaQuery } from "react-responsive";
 import startButton from "../assets/svgs/start-button.svg";
+import blankButton from "../assets/svgs/button-blank.svg";
 import wiiMenuButton from "../assets/svgs/wii-menu-button.svg";
 
-const ViewFooter = () => {
-    const handleClick = () => {
-        window.open("/cv.pdf", "_blank");
-    };
-
+// The default "Start" button (formerly the CV link) does nothing for now.
+// startLabel + startTo replace it with a text button linking to a route.
+// hideStart removes the right-hand button entirely.
+const ViewFooter = ({ startLabel, startTo, hideStart }) => {
     // Is screen 600px
     const isMdOrLarger = useMediaQuery({ minHeight: 600 });
 
@@ -26,18 +27,43 @@ const ViewFooter = () => {
                     />
                 </div>
             </Link>
-            <div
-                className="rounded-full border-2 border-[#00C4FF] cursor-pointer"
-                onClick={handleClick}
-            >
-                <img
-                    src={startButton}
-                    alt="startButton"
-                    className={`object-contain ${isMdOrLarger ? "md:w-96" : "md:w-[50vh]"} w-48`}
-                />
-            </div>
+            {!hideStart && startLabel && (
+                <Link to={startTo}>
+                    <div className="rounded-full border-2 border-[#00C4FF] cursor-pointer">
+                        <div
+                            className={`relative ${isMdOrLarger ? "md:w-96" : "md:w-[50vh]"} w-48 [container-type:inline-size]`}
+                        >
+                            <img
+                                src={blankButton}
+                                alt=""
+                                className="w-full object-contain"
+                            />
+                            <span className="absolute inset-0 flex items-center justify-center pb-[1cqw] font-rodin text-[#383E3F] text-[8.5cqw] whitespace-nowrap">
+                                {startLabel}
+                            </span>
+                        </div>
+                    </div>
+                </Link>
+            )}
+            {!hideStart && !startLabel && (
+                <div
+                    className="rounded-full border-2 border-[#00C4FF]"
+                >
+                    <img
+                        src={startButton}
+                        alt="startButton"
+                        className={`object-contain ${isMdOrLarger ? "md:w-96" : "md:w-[50vh]"} w-48`}
+                    />
+                </div>
+            )}
         </footer>
     );
+};
+
+ViewFooter.propTypes = {
+    startLabel: PropTypes.string,
+    startTo: PropTypes.string,
+    hideStart: PropTypes.bool,
 };
 
 export default ViewFooter;

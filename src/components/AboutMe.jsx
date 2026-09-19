@@ -1,130 +1,64 @@
-import { useRef } from "react";
-import { useMediaQuery } from "react-responsive";
+import PropTypes from "prop-types";
 import ViewFooter from "./ViewFooter";
-import avatarSvg from "../assets/svgs/avatar.svg";
-import gsap from "gsap";
-import { useGSAP } from "@gsap/react";
+
+const cards = [
+    {
+        title: "Lego Sunflowers",
+        subtitle: "Lego 40524",
+        image: "/lego.png",
+    },
+    {
+        title: "After Hours",
+        subtitle: "After Hours by Martin Scorsese",
+        image: "/afterhours.jpg",
+    },
+    { title: null },
+    { title: null },
+];
+
+const Card = ({ title, subtitle, image }) => (
+    <div className="flex flex-col bg-white rounded-xl border-4 border-gray-300 shadow-lg overflow-hidden min-h-0">
+        {title && (
+            <div className="p-3 text-center">
+                <h2 className="font-rodin font-bold text-lg md:text-xl text-orange-900">
+                    {title}
+                </h2>
+                <p className="text-sm text-gray-700 mt-1">{subtitle}</p>
+            </div>
+        )}
+        <div className="flex-1 min-h-[160px] flex items-center justify-center p-3 overflow-hidden">
+            {image ? (
+                <img
+                    src={image}
+                    alt={title}
+                    className="max-w-full max-h-full object-contain"
+                />
+            ) : (
+                <span className="text-gray-300 font-rodin text-xl select-none">
+                    To be defined
+                </span>
+            )}
+        </div>
+    </div>
+);
+
+Card.propTypes = {
+    title: PropTypes.string,
+    subtitle: PropTypes.string,
+    image: PropTypes.string,
+};
 
 const AboutMe = () => {
-    const avatarRef = useRef();
-    const frameRef = useRef();
-    const textRef = useRef();
-    const startRef = useRef();
-
-    const isTallerThan700 = useMediaQuery({ minHeight: 700 });
-    const isTallerThan600 = useMediaQuery({ minHeight: 700 });
-
-    useGSAP(() => {
-        gsap.from(avatarRef.current, {
-            opacity: 0,
-            scale: 0,
-            duration: 1,
-            ease: "elastic.out(1, 0.5)",
-        });
-
-        gsap.to(frameRef.current, {
-            rotation: 360,
-            repeat: -1,
-            duration: 2,
-            ease: "linear",
-            transformOrigin: "50% 50%",
-        });
-
-        gsap.from(textRef.current, {
-            opacity: 0,
-            y: 50,
-            duration: 1,
-            delay: 0.5,
-            stagger: 0.3,
-            ease: "power2.out",
-        });
-
-        gsap.from(startRef.current, {
-            opacity: 0.2,
-            scale: 1.5,
-            duration: 0.2,
-            repeat: -1,
-            yoyo: true,
-            ease: "power.out",
-            delay: 0.8,
-        });
-    });
-
     return (
         <div className="flex flex-col h-screen w-full bg-orange-200">
-            <div
-                className={`flex flex-col flex-grow justify-center items-center p-4 sm:p-6 md:p-8 lg:p-12 bg-gradient-to-r from-orange-100 to-orange-200 rounded-lg shadow-lg h-full pb-20 sm:pb-36 ${isTallerThan600 ? "md:pb-48 lg:pb-64" : "md:pb-[30vh] lg:pb-[30vh]"}`}
-            >
-                {/* Marco giratorio y avatar */}
-                <div className="relative mb-4 sm:mb-8 flex justify-center items-center">
-                    {/* Marco giratorio */}
-                    <div
-                        ref={frameRef}
-                        className={`absolute w-24 h-24 sm:w-32 sm:h-32 ${
-                            isTallerThan700
-                                ? "md:w-[16vw] md:h-[16vw]"
-                                : "md:w-[23vh] md:h-[23vh]"
-                        } rounded-full border-t-4 border-orange-600 flex justify-center items-center`}
-                    >
-                        {" "}
-                    </div>
-                    {/* Imagen estática dentro del marco */}
-                    <img
-                        src={avatarSvg}
-                        alt="avatar"
-                        className={`${
-                            isTallerThan700 ? "md:w-[14vw]" : "md:w-[20vh]"
-                        } w-16 sm:w-24 rounded-full shadow-lg`}
-                        ref={avatarRef}
-                    />
-                </div>
-
-                {/* Texto de presentación */}
-                <div
-                    className="text-center font-serif font-semibold text-gray-700 px-4 sm:px-8 md:px-16 lg:px-24 xl:px-32"
-                    ref={textRef}
-                >
-                    <p className="text-lg sm:text-xl md:text-[2vw] mb-2 sm:mb-4 md:mb-6 leading-relaxed">
-                        Hi! My name is{" "}
-                        <span className="text-orange-600 animate-pulse">
-                            Tobias Echenique
-                        </span>
-                        , and I am from Mendoza, Argentina.
-                    </p>
-                    <p className="text-base sm:text-lg md:text-[1.5vw] mb-2 sm:mb-4 md:mb-6 leading-relaxed">
-                        I hold a{" "}
-                        <span className="text-blue-600">
-                            Bachelor’s in Computer Science and Software
-                            Development
-                        </span>{" "}
-                        and work as a Full Stack Developer.
-                    </p>
-                    <p className="text-base sm:text-lg md:text-[1.5vw] mb-2 sm:mb-4 md:mb-6 leading-relaxed">
-                        Skilled in <span className="text-blue-600">React</span>,{" "}
-                        <span className="text-blue-600">Java Spring Boot</span>,
-                        and <span className="text-blue-600">APIs</span>, I build
-                        modern web applications across{" "}
-                        <span className="text-blue-600">frontend</span> and{" "}
-                        <span className="text-blue-600">backend</span>.
-                    </p>
-                    <p className="text-base sm:text-lg md:text-[1.5vw] mb-2 sm:mb-4 md:mb-6 leading-relaxed">
-                        I adapt quickly, love learning new technologies, and
-                        enjoy solving complex challenges.
-                    </p>
-                    <p className="text-lg sm:text-xl md:text-[2vw] pt-3">
-                        <span
-                            className="text-slate-600 sm:text-2xl md:text-[2.8vw] font-rodin font-bold animate-pulse"
-                            ref={startRef}
-                        >
-                            Press &quot;Start&quot; to view my Resume.
-                        </span>{" "}
-                    </p>
+            <div className="flex-1 min-h-0 px-4 pt-4 pb-48 md:pb-[calc(6.6vw+130px)] overflow-y-auto">
+                <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4 h-full auto-rows-[minmax(280px,1fr)]">
+                    {cards.map((card, i) => (
+                        <Card key={i} {...card} />
+                    ))}
                 </div>
             </div>
-
-            <div className="mt-auto">
-                <ViewFooter />
-            </div>
+            <ViewFooter />
         </div>
     );
 };

@@ -1,5 +1,5 @@
 {
-  "name": "wii-portfolio",
+  "name": "wii-date",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -7,10 +7,13 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "postinstall": "node scripts/copy-ruffle.js"
   },
   "dependencies": {
     "@gsap/react": "^2.1.1",
+    "@ruffle-rs/ruffle": "^0.6.0",
+    "@vis.gl/react-google-maps": "^1.10.0",
     "gsap": "^3.12.5",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",

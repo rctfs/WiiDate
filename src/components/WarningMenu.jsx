@@ -41,43 +41,10 @@ const WarningMenu = () => {
                         WARNING-HEALTH AND SAFETY
                     </div>
                 </div>
-                <div className="flex items-center mt-24">
+                <div className="flex items-center mt-24 px-6">
                     <div className="font-rodin font-black text-xl md:text-3xl text-center text-white md:ml-4">
-                        HI, MY NAME IS <i>TOBIAS ECHENIQUE</i>. I AM A SOFTWARE
-                        DEVELOPER.
+                        Olá Diana, o que fazes esta semana? Queres sair comigo?
                     </div>
-                </div>
-                <div className="flex items-center mt-4">
-                    <div className="font-rodin font-black text-xl md:text-3xl text-center text-white md:ml-4">
-                        I HOLD A BACHELOR’S DEGREE IN COMPUTER SCIENCE AND
-                        SOFTWARE DEVELOPMENT
-                    </div>
-                </div>
-                <div className="flex items-center mt-24">
-                    <div className="font-rodin font-black text-xl md:text-3xl text-center text-white md:ml-4">
-                        THIS IS MY PORTFOLIO INSPIRED BY THE WII MAIN MENU.
-                    </div>
-                </div>
-                <div className="flex items-center mt-4">
-                    <div className="font-rodin font-black text-xl md:text-3xl text-center text-white md:ml-4">
-                        FOR THE BEST EXPERIENCE, VIEW IT ON A DESKTOP.
-                    </div>
-                </div>
-
-                <div className="flex items-center mt-16">
-                    <div className="font-rodin font-black text-xl md:text-3xl text-center text-white md:ml-4">
-                        Connect with me on LinkedIn
-                    </div>
-                </div>
-                <div className="font-rodin font-black text-xl md:text-3xl text-center text-white md:ml-4">
-                    <a
-                        href="https://www.linkedin.com/in/tobiasechenique/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="font-rodin font-black text-2xl text-blue-300 ml-4 hover:underline"
-                    >
-                        linkedin.com/in/tobiasechenique
-                    </a>
                 </div>
 
                 <div className="flex items-center mt-16">

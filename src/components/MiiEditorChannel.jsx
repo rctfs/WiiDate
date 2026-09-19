@@ -1,12 +1,12 @@
 import { useState, useRef } from "react";
-import workIcon from "../assets/svgs/work-channel.svg";
+const miiIcon = "/miidefault.png";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 
-const WorkExperienceChannel = () => {
+const MiiEditorChannel = () => {
     const [showTooltip, setShowTooltip] = useState(false);
     const [hoverTimeout, setHoverTimeout] = useState(null);
-    const workIconRef = useRef();
+    const miiIconRef = useRef();
 
     const handleMouseEnter = () => {
         const timeoutId = setTimeout(() => {
@@ -22,8 +22,8 @@ const WorkExperienceChannel = () => {
 
     useGSAP(() => {
         // Animación de brillo/resplandor
-        gsap.to(workIconRef.current, {
-            filter: "brightness(2) drop-shadow(0 0 10px rgba(245, 158, 11, 0.8))",
+        gsap.to(miiIconRef.current, {
+            filter: "brightness(2) drop-shadow(0 0 10px rgba(0, 196, 255, 0.8))",
             duration: 1,
             repeat: -1,
             yoyo: true,
@@ -31,7 +31,7 @@ const WorkExperienceChannel = () => {
         });
         
         // Animación sutil de escala
-        gsap.to(workIconRef.current, {
+        gsap.to(miiIconRef.current, {
             scale: 1.05,
             duration: 1,
             repeat: -1,
@@ -46,12 +46,12 @@ const WorkExperienceChannel = () => {
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
         >
-            <div className="bg-amber-200 flex items-center justify-center font-mono rounded-lg w-full h-full overflow-hidden channel-height">
+            <div className="bg-sky-100 flex items-center justify-center font-mono rounded-lg w-full h-full overflow-hidden channel-height">
                 <div className="text-7xl">
                     <img
-                        ref={workIconRef}
-                        src={workIcon}
-                        alt="Work Experience"
+                        ref={miiIconRef}
+                        src={miiIcon}
+                        alt="Date Outfit Picker"
                         className={`object-cover md:w-[6vw] w-24`}
                     />
                 </div>
@@ -60,11 +60,11 @@ const WorkExperienceChannel = () => {
             {/* Tooltip */}
             {showTooltip && (
                 <div className="font-rodin absolute z-10 left-1/2 transform -translate-x-1/2 mt-2 px-24 py-2 bg-white text-black rounded-full text-xl border-2 border-gray-300 shadow-xl whitespace-nowrap">
-                    <p>Professional experience</p>
+                    <p>Date Outfit Picker</p>
                 </div>
             )}
         </div>
     );
 };
 
-export default WorkExperienceChannel;
+export default MiiEditorChannel;

@@ -252,3 +252,12 @@ body {
     height: auto;
     min-height: 322px; /* Altura mínima */
 }
+
+@keyframes float {
+    0%, 100% { transform: translateY(0) rotate(-1deg); }
+    50% { transform: translateY(-6px) rotate(1deg); }
+}
+
+.animate-jitter {
+    animation: float 3.5s ease-in-out infinite;
+}
